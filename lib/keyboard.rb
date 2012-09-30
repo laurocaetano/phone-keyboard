@@ -8,11 +8,13 @@ class Keyboard
              'T' => '8', 'U' => '88', 'V' => '888', 
              'W' => '9', 'X' => '99', 'Y' => '999', 
              ' ' => '0' }
-  
+             
   def write phrase
     code = ''
+    words = phrase.split(//)
     
-    phrase.each_char do |word|
+    words.each_with_index do |word, i|
+      code += '_' if i > 0 && words[i - 1] == word
       code += KEYMAP[word.upcase]
     end
     
