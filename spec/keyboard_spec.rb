@@ -13,4 +13,11 @@ describe Keyboard do
       keyboard.write('text').should == '833998'
     end
   end
+  
+  context "Given a message with space between the words" do
+    it "should write 'text msg'" do
+      keyboard = Keyboard.new
+      keyboard.write('text msg').should == '8339980677774'
+    end
+  end
 end
